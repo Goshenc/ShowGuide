@@ -38,7 +38,11 @@ class HomeActivity : AppCompatActivity() {
         binding=ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        if (PrefsManager.isFirstSelection(this)) {
+            startActivity(Intent(this, CityActivity::class.java))
+            finish()
+            return
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.bottomRow) { view, insets ->
             // 只取导航栏的高度
@@ -149,5 +153,17 @@ binding.imgLocation.setOnClickListener(){
 
 
 
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+
+        val cityId = PrefsManager.getCityId(this)
+        val cityName = PrefsManager.getCityName(this)
+
+
+        binding.viewPager.adapter = HomeViewPagerAdapter(this, cityId, cityName)
 
 }
