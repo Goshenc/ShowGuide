@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_gray">
-<RatingBar
-    android:id="@+id/rating"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:translationZ="10dp"
-   app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    android:layout_marginTop="5dp"
-    />
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="5dp"
+        />
     <!-- 1. 可滚动的内容区域 -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContent"
@@ -70,6 +70,7 @@
                 android:id="@+id/titleEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
                 android:hint="标题"
                 android:inputType="textCapSentences"
                 android:maxLines="3"
@@ -77,7 +78,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:background="@android:drawable/edit_text"
+                android:background="@drawable/edittext_rounded"
                 android:textColor="@android:color/black"
                 app:layout_constraintTop_toBottomOf="@id/locationTextView"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,15 +92,15 @@
                 android:layout_height="wrap_content"
                 android:hint="开始书写"
                 android:inputType="textMultiLine"
-                android:minLines="20"
+                android:minLines="22"
                 android:maxLines="30"
                 android:gravity="top"
-                android:padding="8dp"
+                android:padding="10dp"
                 android:textSize="16sp"
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:background="@android:drawable/edit_text"
+                android:background="@drawable/edittext_rounded"
                 android:textColor="@android:color/black"
                 app:layout_constraintTop_toBottomOf="@id/titleEditText"
                 app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +196,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-android:layout_marginTop="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
