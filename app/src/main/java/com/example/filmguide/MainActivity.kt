@@ -97,7 +97,22 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
+        binding.test.setOnClickListener {
+            Log.d("MainActivity", ">> test clicked")
+            Toast.makeText(this, "test 点击", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, RecordsActivity::class.java))
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.test) { view, insets ->
+            val navBarInset = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            (view.layoutParams as ViewGroup.MarginLayoutParams).apply {
+                bottomMargin = navBarInset
+            }.also { view.layoutParams = it }
+            insets
+        }
 
+        binding.testcity.setOnClickListener {
+            startActivity(Intent(this, ReminderActivity::class.java))
+        }
 
         // 创建通知渠道
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
